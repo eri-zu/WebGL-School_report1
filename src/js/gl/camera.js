@@ -33,11 +33,19 @@ export class Camera {
   onResize(w, h) {
     this.instance.aspect = w / h;
     this.setPixelPosition(h);
+    this.instance.updateProjectionMatrix();
   }
 
   setPixelPosition(h) {
     const fovRad = (Camera.CAMERA_PARAM.fovy / 2) * (Math.PI / 180);
     this.instance.position.z = h / 2 / Math.tan(fovRad);
-    this.instance.updateProjectionMatrix();
+  }
+
+  setPosition() {
+    this.instance.position.set(
+      Camera.CAMERA_PARAM.x,
+      Camera.CAMERA_PARAM.y,
+      Camera.CAMERA_PARAM.z
+    );
   }
 }

@@ -5,11 +5,10 @@ import { Obj } from "./obj";
 export class Gl {
   constructor(wrap) {
     this.wrap = wrap;
-
-    this.setup();
+    this.init();
   }
 
-  setup() {
+  init() {
     this.canvas = this.wrap.querySelector("canvas");
     this.renderer = new Renderer(this.canvas);
     this.scene = new Scene();
@@ -29,6 +28,7 @@ export class Gl {
   onResize() {
     const w = this.wrap.clientWidth;
     const h = this.wrap.clientHeight;
+
     this.renderer.onResize(w, h);
     this.camera.onResize(w, h);
     this.obj.onResize(w, h);

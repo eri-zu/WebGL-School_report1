@@ -18,13 +18,18 @@ export class Obj {
       color: Obj.MATERIAL_PARAM.color,
       // transparent: false,
       // opacity: 1,
+      wireframe: true,
     });
     this.instance = new Mesh(g, m);
   }
 
   load() {}
 
-  onUpdate() {}
+  onUpdate() {
+    this.instance.rotation.x += 0.01;
+    this.instance.rotation.y += 0.007;
+    // this.instance.rotation.z += 0.05;
+  }
 
   onResize(w, h) {}
 }
