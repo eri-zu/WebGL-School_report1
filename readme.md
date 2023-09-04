@@ -9,7 +9,7 @@ WebGL スクール第一回講義の課題
 ・まっすぐ並べてもいいし……ランダムでもいい（配置の仕方は自由）
 ・色や大きさなどは自由
 
-## Getting Started
+# Getting Started
 
 // version
 node version v16.0.0〜
