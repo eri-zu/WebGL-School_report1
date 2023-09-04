@@ -1,0 +1,13 @@
+@import "./common/reset.scss";
+
+img {
+  width: 100px;
+}
+
+div {
+  width: 100px;
+  height: 200px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/assets/img/01.jpeg");
+}
