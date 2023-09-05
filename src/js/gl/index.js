@@ -1,7 +1,11 @@
-import { Scene } from "three";
+import { Scene, AxesHelper } from "three";
 import { Renderer } from "./renderer";
-import { Camera } from "./camera";
-import { Obj } from "./obj";
+// import { Camera } from "./perspectiveCamera";
+import { Camera } from "./orthographicCamera";
+import { Objs } from "./objs";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { Light } from "./light";
+
 export class Gl {
   constructor(wrap) {
     this.wrap = wrap;
@@ -13,16 +17,25 @@ export class Gl {
     this.renderer = new Renderer(this.canvas);
     this.scene = new Scene();
     this.camera = new Camera();
-    this.obj = new Obj();
+    this.light = new Light();
+    this.objs = new Objs();
+    this.scene.add(this.light.instance);
+    this.scene.add(this.objs.group);
 
-    this.scene.add(this.obj.instance);
+    // helper
+    // const axesBarLength = 5.0;
+    // this.axesHelper = new AxesHelper(axesBarLength);
+    // this.scene.add(this.axesHelper);
+
+    // orbit control
+    // this.controls = new OrbitControls(this.camera.instance, this.canvas);
   }
 
-  load() {}
+  onUpdate(scrollY) {
+    if (this.controls) this.controls.update();
+    this.objs.onUpdate(scrollY);
 
-  onUpdate() {
     this.renderer.instance.render(this.scene, this.camera.instance);
-    this.obj.onUpdate();
   }
 
   onResize() {
@@ -31,7 +44,7 @@ export class Gl {
 
     this.renderer.onResize(w, h);
     this.camera.onResize(w, h);
-    this.obj.onResize(w, h);
+    this.objs.onResize(w, h);
   }
 
   setEvents() {}

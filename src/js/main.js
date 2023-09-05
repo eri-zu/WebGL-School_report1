@@ -16,8 +16,10 @@ export class Controller {
   onUpdate() {
     if (!this.isUpdate) return;
 
+    const scrollY = window.scrollY;
+
     this.timer = requestAnimationFrame(this.onUpdate.bind(this));
-    this.gl.onUpdate();
+    this.gl.onUpdate(scrollY);
   }
 
   onResize() {
@@ -32,11 +34,16 @@ export class Controller {
     if (!this.isScroll) return;
   }
 
+  load() {
+    window.scrollTo(0, 0);
+  }
+
   setEvents() {
     this.onUpdate();
     window.addEventListener("resize", this.onResize.bind(this));
     window.addEventListener("mousemove", this.onMouseMove.bind(this));
     window.addEventListener("scroll", this.onScroll.bind(this));
+    window.addEventListener("load", this.load.bind(this));
   }
 }
 

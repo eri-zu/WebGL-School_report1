@@ -1,5 +1,5 @@
 import { WebGLRenderer, Color } from "three";
-
+import { random } from "../util/math";
 export class Renderer {
   constructor(canvas) {
     this.canvas = canvas;
@@ -19,7 +19,9 @@ export class Renderer {
   init() {
     this.instance = new WebGLRenderer({ canvas: this.canvas });
     this.instance.setPixelRatio(window.devicePixelRatio);
-    this.instance.setClearColor(new Color(Renderer.RENDERER_PARAM.clearColor));
+    this.instance.setClearColor(
+      new Color(random(0, 1), random(0, 1), random(0, 1))
+    );
     this.instance.setSize(window.innerWidth, window.innerHeight);
   }
 
