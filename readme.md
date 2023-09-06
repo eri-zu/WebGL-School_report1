@@ -1,6 +1,6 @@
 # Overview
 
-WebGL スクール第一回講義の課題
+WebGLスクール第一回講義の課題
 
 # Requirement
 
