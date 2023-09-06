@@ -10,7 +10,7 @@ WebGL スクール第一回講義の課題
 ・色や大きさなどは自由
 
 # URL
-
+https://eri-zu.github.io/WebGL-School_report1/dist/
 
 # Inspired by
 https://ikeryou.jp/sketch/293/
