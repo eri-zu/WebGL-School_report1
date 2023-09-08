@@ -17,6 +17,7 @@ https://eri-zu.github.io/WebGL-School_report1/dist/ <br>
 
 # Inspired by
 https://ikeryou.jp/sketch/293/
+ビジュアルのアイディアを参考にさせていただきました。
 
 # Getting Started
 
